@@ -1,0 +1,61 @@
+body {
+  width: 100%;
+  height: 100%;
+  color: orange;
+  font-family: 'Comic Sans MS', cursive;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/falls.gif');
+  background-size: 100% 100%;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  -moz-transform: perspective(500px) rotateY(30deg) rotateZ(10deg);
+  -webkit-transform: perspective(500px) rotateY(30deg) rotateZ(10deg);
+  transform: perspective(500px) rotateY(30deg) rotateZ(10deg);
+}
+
+header h1 {
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+}
+
+header h1 span {
+  font-family: Papyrus, fantasy;
+  font-size: 0.8em;
+}
+
+.word {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  font-size: 60px;
+  color: white;
+  text-shadow: -10px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.audio {
+  display: none;
+}
+
+.twitter-share-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -25px;
+}
