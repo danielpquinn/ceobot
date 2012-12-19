@@ -7,18 +7,20 @@
 
   $(document).ready(function () {
 
-    var $adverb = $('.adverb'),
+    var $title = $('.title'),
+      $adverb = $('.adverb'),
       $adjective = $('.adjective'),
       $noun = $('.noun'),
+      $body = $('body'),
       adverbs = [],
       adjectives = [],
       nouns = [],
       interval = 10000,
       winWidth = $(window).innerWidth(),
       methods = {
-        grabWord : function (arr) {
-          var word = arr[Math.floor(Math.random() * arr.length)];
-          return word;
+        grabSomething : function (arr) {
+          var thing = arr[Math.floor(Math.random() * arr.length)];
+          return thing;
         },
 
         updateWords : function () {
@@ -36,7 +38,7 @@
             'margin-left': winWidth + 'px',
             'opacity': 0
           }, dur, function () {
-            $w.html(methods.grabWord(set));
+            $w.html(methods.grabSomething(set));
             $w.css({
               'margin-left': winWidth * -1 + 'px',
               'opacity': 1
@@ -46,7 +48,10 @@
           });
         },
 
-        init : function (dat) {
+        init : function () {
+          $body.css({
+            'background-image': 'url("../images/' + Math.ceil(Math.random() * 4) + '.gif")'
+          });
           methods.updateWords();
           setInterval(function () {
             methods.updateWords();
@@ -58,6 +63,7 @@
       url: 'words.json',
       dataType: 'json'
     }).done(function (data) {
+      $title.html(methods.grabSomething(data[0].titles));
       adverbs = data[0].adverbs;
       adjectives = data[0].adjectives;
       nouns = data[0].nouns;
